@@ -1,8 +1,14 @@
 
+// Components
+import Header from "./Header";
+
 function App() {
   return (
     <div className="App">
-      Hello World
+      <div className="container">
+        <Header />
+        
+      </div>
     </div>
   );
 }
