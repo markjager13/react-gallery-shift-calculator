@@ -1,10 +1,54 @@
-import React from 'react'
+import React, {useState} from 'react';
 
 const InputForm = () => {
+
+    const initialValues = {
+        startTime: "",
+        endTime: "",
+        staffNum: ""
+      };
+    
+    const initialRadioValues = {
+        tableBig: "",
+        statisticsSheet: "",
+        simpleTable: ""
+    }
+
+    const [values, setValues] = useState(initialValues);
+    const [resultsFormat, setResultsFormat] = useState(initialRadioValues);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setValues({
+          ...values,
+          [name]: value,
+        });
+        console.log(values);
+      };
+
+    const handleResultsFormatChange = (e) => {
+        const { name, value} = e.target;
+        setResultsFormat({
+            ...resultsFormat,
+            [name]: value,
+        });
+        console.log(resultsFormat)
+    }
+
   return (
     <div className="input-container">
         <form className="form-input">
-            <input type="text" className="userInput" id="startTime" placeholder="Start Time" list="sTimes" />
+            <input 
+                type="text" 
+                className="userInput" 
+                value={values.startTime}
+                onChange={handleInputChange} 
+                name="startTime"
+                label="Start Time"
+                id="startTime" 
+                placeholder="Start Time" 
+                list="sTimes" 
+            />
             <datalist id="sTimes">
 				<option value="9:30 am" />
 				<option value="9:45 am" />
@@ -13,7 +57,17 @@ const InputForm = () => {
 				<option value="10:30 am" />
 			</datalist>
 
-            <input type="text" className="userInput" id="endTime" placeholder="End Time" list="eTimes" />
+            <input 
+                type="text" 
+                className="userInput" 
+                value={values.endTime}
+                onChange={handleInputChange} 
+                name="endTime"
+                label="End Time"
+                id="endTime" 
+                placeholder="End Time" 
+                list="eTimes" 
+            />
             <datalist id="eTimes">
 				<option value="3:30 pm" />
 				<option value="3:45 pm" />
@@ -22,7 +76,17 @@ const InputForm = () => {
 				<option value="4:30 pm" />
 			</datalist>
 
-			<input type="text" className="userInput" id="staffNum"placeholder="Number of Staff" list="number" />
+			<input 
+                type="text" 
+                className="userInput" 
+                value={values.staffNum}
+                onChange={handleInputChange}
+                name="staffNum"
+                label="Staff Number" 
+                id="staffNum"
+                placeholder="Number of Staff" 
+                list="number" 
+            />
             <datalist id="number">
 				<option value="5" />
 				<option value="6" />
@@ -34,13 +98,38 @@ const InputForm = () => {
 
             <label>Results Format:<br/>
 				<label>
-					<input type="radio" className="radioSelect" id="tableSelectBig" name="tableType" value="TableBig" checked/>Office Schedule<br/>
+					<input 
+                        type="radio" 
+                        className="radioSelect" 
+                        id="tableSelectBig" 
+                        onChange={handleResultsFormatChange}
+                        name="tableBig" 
+                        value={resultsFormat.tableBig}
+                        defaultChecked={true}
+                    />
+                    Office Schedule<br/>
 				</label>
 				<label>
-					<input type="radio" className="radioSelect" id="sheetSelect" name="tableType" value="Statistics Sheet" />Statistics Form<br/>
+					<input 
+                        type="radio" 
+                        className="radioSelect" 
+                        id="sheetSelect" 
+                        onChange={handleResultsFormatChange}
+                        name="statisticsSheet" 
+                        value={resultsFormat.statisticsSheet} 
+                    />
+                    Statistics Form<br/>
 				</label>					
 				<label>
-					<input type="radio" className="radioSelect" id="tableSelect" name="tableType" value="Table" />Table<br/>
+					<input 
+                        type="radio" 
+                        className="radioSelect" 
+                        id="tableSelect" 
+                        onChange={handleResultsFormatChange}
+                        name="simpleTable" 
+                        value={resultsFormat.simpleTable} 
+                    />
+                    Table<br/>
 				</label>
 			</label>
 
