@@ -5,35 +5,19 @@ const InputForm = () => {
     const initialValues = {
         startTime: "",
         endTime: "",
-        staffNum: ""
+        staffNum: "",
+        resultsFormat: "tableBig",
       };
-    
-    const initialRadioValues = {
-        tableBig: "",
-        statisticsSheet: "",
-        simpleTable: ""
-    }
 
     const [values, setValues] = useState(initialValues);
-    const [resultsFormat, setResultsFormat] = useState(initialRadioValues);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setValues({
           ...values,
-          [name]: value,
+          [name]: value
         });
-        console.log(values);
       };
-
-    const handleResultsFormatChange = (e) => {
-        const { name, value} = e.target;
-        setResultsFormat({
-            ...resultsFormat,
-            [name]: value,
-        });
-        console.log(resultsFormat)
-    }
 
   return (
     <div className="input-container">
@@ -102,9 +86,9 @@ const InputForm = () => {
                         type="radio" 
                         className="radioSelect" 
                         id="tableSelectBig" 
-                        onChange={handleResultsFormatChange}
-                        name="tableBig" 
-                        value={resultsFormat.tableBig}
+                        onChange={handleInputChange}
+                        name="resultsFormat"
+                        value="tableBig"
                         defaultChecked={true}
                     />
                     Office Schedule<br/>
@@ -114,9 +98,9 @@ const InputForm = () => {
                         type="radio" 
                         className="radioSelect" 
                         id="sheetSelect" 
-                        onChange={handleResultsFormatChange}
-                        name="statisticsSheet" 
-                        value={resultsFormat.statisticsSheet} 
+                        onChange={handleInputChange}
+                        name="resultsFormat"
+                        value="statisticsSheet"
                     />
                     Statistics Form<br/>
 				</label>					
@@ -125,9 +109,9 @@ const InputForm = () => {
                         type="radio" 
                         className="radioSelect" 
                         id="tableSelect" 
-                        onChange={handleResultsFormatChange}
-                        name="simpleTable" 
-                        value={resultsFormat.simpleTable} 
+                        onChange={handleInputChange}
+                        name="resultsFormat"
+                        value="simpleTable"
                     />
                     Table<br/>
 				</label>
