@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
+import parseDateTime from './parseDateTime';
+import generateShifts from './generateShifts';
 
 const InputForm = () => {
 
+    // initialValues start end times and staffNum should be empty
+    // ...fix for now until we can validate inputs and do error handling
     const initialValues = {
-        startTime: "",
-        endTime: "",
-        staffNum: "",
+        startTime: "09:30 am",
+        endTime: "04:00 pm",
+        staffNum: "5",
         resultsFormat: "tableBig",
       };
 
@@ -19,9 +23,28 @@ const InputForm = () => {
         });
       };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        // send input values to be converted to 24hr and returned as Date objects (helper func)
+        const startTimeObj = parseDateTime(values.startTime);
+        const endTimeObj = parseDateTime(values.endTime);
+        
+        // get time offset
+        const diffInMilliseconds = Math.abs(endTimeObj - startTimeObj);
+        const offset = diffInMilliseconds / values.staffNum;      
+
+        // generate shifts
+        let shifts = generateShifts(startTimeObj, endTimeObj, offset);
+    
+        console.log(shifts);
+    }
+
+
+
   return (
     <div className="input-container">
-        <form className="form-input">
+        <form className="form-input" onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 className="userInput" 
