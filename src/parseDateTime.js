@@ -11,7 +11,6 @@ const parseDateTime = (time) => {
     date.setSeconds("00");
 
     return date;
-    
 };
   
   export default parseDateTime;

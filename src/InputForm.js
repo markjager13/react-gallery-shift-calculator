@@ -26,7 +26,7 @@ const InputForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // send input values to be converted to 24hr and returned as Date objects (helper func)
+        // send input values to be converted to 24hr and returned as Date objects
         const startTimeObj = parseDateTime(values.startTime);
         const endTimeObj = parseDateTime(values.endTime);
         
