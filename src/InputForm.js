@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import Modal from './Modal';
 import parseDateTime from './parseDateTime';
 import generateShifts from './generateShifts';
 
-const InputForm = () => {
+const InputForm = (props) => {
 
     // initialValues start end times and staffNum should be empty
     // ...fix for now until we can validate inputs and do error handling
@@ -14,6 +15,7 @@ const InputForm = () => {
       };
 
     const [values, setValues] = useState(initialValues);
+    const [showModal, setShowModal] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -140,9 +142,10 @@ const InputForm = () => {
 				</label>
 			</label>
 
-            <button type="submit" className="userButton" id="calculateButton">CALCULATE</button>
+            <button type="submit" onClick={() => setShowModal(true)} className="userButton" id="calculateButton">CALCULATE</button>
 			<input type="button" className="userButton" id="resetButton" value="RESET" />
         </form>
+        <Modal showModal={showModal} onClose={() => setShowModal(false)} />
     </div>
   )
 }
