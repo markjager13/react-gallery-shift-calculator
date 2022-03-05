@@ -1,22 +1,45 @@
-import React, {useState} from 'react';
-import Modal from './Modal';
+//import React, {useState} from 'react';
+import { useForm } from 'react-hook-form';
+//import Modal from './Modal';
 import parseDateTime from './parseDateTime';
 import generateShifts from './generateShifts';
 
-const InputForm = (props) => {
+const InputForm = () => {
 
-    // initialValues start end times and staffNum should be empty
+    // initial values start end times and staffNum should be empty
     // ...fix for now until we can validate inputs and do error handling
-    const initialValues = {
+    /*
+    const [values, setValues] = useState({        
         startTime: "09:30 am",
         endTime: "04:00 pm",
         staffNum: "5",
-        resultsFormat: "tableBig",
-      };
+        resultsFormat: "tableBig"
+    });
+    */
 
-    const [values, setValues] = useState(initialValues);
-    const [showModal, setShowModal] = useState(false);
+    const {register, handleSubmit} = useForm();
 
+    const onSubmit = (inputData) => {
+        //e.preventDefault(); do i still need this using react hook form???
+
+        console.log(inputData);
+        // send input values to be converted to 24hr and returned as Date objects
+        const startTimeObj = parseDateTime(inputData.startTime);
+        const endTimeObj = parseDateTime(inputData.endTime);
+        
+        // get time offset
+        const diffInMilliseconds = Math.abs(endTimeObj - startTimeObj);
+        const offset = diffInMilliseconds / inputData.staffNum;      
+
+        // generate shifts
+        let shifts = generateShifts(startTimeObj, endTimeObj, offset);
+    
+        console.log(shifts);
+    }
+
+    //const [showModal, setShowModal] = useState(false);
+
+    /*
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setValues({
@@ -41,22 +64,24 @@ const InputForm = (props) => {
     
         console.log(shifts);
     }
+    */
 
 
 
   return (
     <div className="input-container">
-        <form className="form-input" onSubmit={handleSubmit}>
+        <form className="form-input" onSubmit={handleSubmit(onSubmit)}>
             <input 
                 type="text" 
                 className="userInput" 
-                value={values.startTime}
-                onChange={handleInputChange} 
+                //value={values.startTime}
+                //onChange={handleInputChange} 
                 name="startTime"
-                label="Start Time"
+                //label="Start Time"
                 id="startTime" 
                 placeholder="Start Time" 
-                list="sTimes" 
+                list="sTimes"
+                {...register("startTime")}
             />
             <datalist id="sTimes">
 				<option value="9:30 am" />
@@ -69,13 +94,14 @@ const InputForm = (props) => {
             <input 
                 type="text" 
                 className="userInput" 
-                value={values.endTime}
-                onChange={handleInputChange} 
+                //value={values.endTime}
+                //onChange={handleInputChange} 
                 name="endTime"
-                label="End Time"
+                //label="End Time"
                 id="endTime" 
                 placeholder="End Time" 
                 list="eTimes" 
+                {...register("endTime")}
             />
             <datalist id="eTimes">
 				<option value="3:30 pm" />
@@ -88,13 +114,14 @@ const InputForm = (props) => {
 			<input 
                 type="text" 
                 className="userInput" 
-                value={values.staffNum}
-                onChange={handleInputChange}
+                //value={values.staffNum}
+                //onChange={handleInputChange}
                 name="staffNum"
-                label="Staff Number" 
+                //label="Staff Number" 
                 id="staffNum"
                 placeholder="Number of Staff" 
                 list="number" 
+                {...register("staffNum")}
             />
             <datalist id="number">
 				<option value="5" />
@@ -111,10 +138,11 @@ const InputForm = (props) => {
                         type="radio" 
                         className="radioSelect" 
                         id="tableSelectBig" 
-                        onChange={handleInputChange}
+                        //onChange={handleInputChange}
                         name="resultsFormat"
                         value="tableBig"
                         defaultChecked={true}
+                        {...register("radio")}
                     />
                     Office Schedule<br/>
 				</label>
@@ -123,9 +151,10 @@ const InputForm = (props) => {
                         type="radio" 
                         className="radioSelect" 
                         id="sheetSelect" 
-                        onChange={handleInputChange}
+                        //onChange={handleInputChange}
                         name="resultsFormat"
                         value="statisticsSheet"
+                        {...register("radio")}
                     />
                     Statistics Form<br/>
 				</label>					
@@ -134,18 +163,19 @@ const InputForm = (props) => {
                         type="radio" 
                         className="radioSelect" 
                         id="tableSelect" 
-                        onChange={handleInputChange}
+                        //onChange={handleInputChange}
                         name="resultsFormat"
                         value="simpleTable"
+                        {...register("radio")}
                     />
                     Table<br/>
 				</label>
 			</label>
 
-            <button type="submit" onClick={() => setShowModal(true)} className="userButton" id="calculateButton">CALCULATE</button>
+            <button type="submit" /*</form>onClick={() => setShowModal(true)}*/ className="userButton" id="calculateButton">CALCULATE</button>
 			<input type="button" className="userButton" id="resetButton" value="RESET" />
         </form>
-        <Modal showModal={showModal} onClose={() => setShowModal(false)} />
+       {/*<Modal showModal={showModal} onClose={() => setShowModal(false)} />*/}
     </div>
   )
 }
