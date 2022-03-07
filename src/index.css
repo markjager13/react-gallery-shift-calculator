@@ -137,8 +137,18 @@ label {
 
 .modal-body {
   padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 15px;
+  width: 30%;
 }
 
 

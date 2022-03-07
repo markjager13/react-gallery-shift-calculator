@@ -2,7 +2,7 @@ import formatShift from "./formatShift";
 import getShiftLength from "./getShiftLength";
 
 // Generates shifts and shift lenghts from user inputs
-const generateShifts = (start, end, offset) => {
+const generateResults = (start, end, offset, radioSelection) => {
 
     // timesArray will contain unrounded times (as Date instance) of when each shift should start 
     const timesArray = [];
@@ -13,7 +13,7 @@ const generateShifts = (start, end, offset) => {
     } while (shiftTime <= end);
   
     // shiftArray will contain shift (start to finish) and length of each shift
-    const shiftArray = [];
+    const shiftsArray = [];
     let shiftStart, shiftEnd;
     for (let i = 0; i < timesArray.length; i++) {
       shiftStart = timesArray[i];
@@ -35,13 +35,14 @@ const generateShifts = (start, end, offset) => {
       const shift = formatShift(shiftStart, shiftEnd);
   
       // push formatted shift and shift length to array
-      shiftArray.push([shift, shiftLength]);
+      shiftsArray.push([shift, shiftLength]);
 
       // shift end time becomes new start time for next iteration
       shiftStart = shiftEnd;
     }
   
-    return shiftArray;
+    const results = {shiftsArray, radioSelection};
+    return results;
 }
 
-  export default generateShifts;
+  export default generateResults;

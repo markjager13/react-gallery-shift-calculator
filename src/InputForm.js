@@ -1,13 +1,13 @@
-//import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
-//import Modal from './Modal';
 import parseDateTime from './parseDateTime';
-import generateShifts from './generateShifts';
+import generateResults from './generateResults';
 
-const InputForm = () => {
+const InputForm = (props) => {
 
     // react-hook-form to manage form data, validation, error messages
     const {register, handleSubmit, formState: {errors} } = useForm();
+    // function to manage error messages
+    const handleErrors = (errors) => {};
 
     // input validation options and related error messages
     const inputOptions = {
@@ -34,32 +34,31 @@ const InputForm = () => {
         }  
     }
 
-    // function to manage error messages
-    const handleErrors = (errors) => {};
-
     // submit input data to be calculated
     const handleCalculation = (inputData) => {
 
-        console.log(inputData);
         // send input values to be converted to 24hr and returned as Date objects
         const startTimeObj = parseDateTime(inputData.startTime);
         const endTimeObj = parseDateTime(inputData.endTime);
-        
+
         // get time offset
         const diffInMilliseconds = Math.abs(endTimeObj - startTimeObj);
         const offset = diffInMilliseconds / inputData.staffNum;      
 
-        // generate shifts
-        let shifts = generateShifts(startTimeObj, endTimeObj, offset);
-    
-        console.log(shifts);
-    }
+        // get radio button selection
+        const radioSelection = inputData.radio;
 
-    //const [showModal, setShowModal] = useState(false);
+        // generate results
+        let results = generateResults(startTimeObj, endTimeObj, offset, radioSelection);
+        
+        props.getResults(results);
+    }
 
   return (
     <div className="input-container">
+
         <form className="form-input" onSubmit={handleSubmit(handleCalculation, handleErrors)}>
+            
             <input 
                 type="text" 
                 className="userInput" 
@@ -155,10 +154,10 @@ const InputForm = () => {
 				</label>
 			</label>
 
-            <button type="submit" /*onClick={() => setShowModal(true)}*/ className="userButton" id="calculateButton">CALCULATE</button>
+            <button type="submit" onClick={props.triggerModal} className="userButton" id="calculateButton">CALCULATE</button>
 			<input type="button" className="userButton" id="resetButton" value="RESET" />
         </form>
-       {/*<Modal showModal={showModal} onClose={() => setShowModal(false)} />*/}
+
     </div>
   )
 }
