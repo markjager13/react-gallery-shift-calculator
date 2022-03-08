@@ -15,13 +15,9 @@ const generateResults = (start, end, offset, radioSelection) => {
     // shiftArray will contain shift (start to finish) and length of each shift
     const shiftsArray = [];
     let shiftStart, shiftEnd;
-    for (let i = 0; i < timesArray.length; i++) {
+    for (let i = 0; i < timesArray.length - 1; i++) {
       shiftStart = timesArray[i];
-      if (i === timesArray.length - 1) {
-        break;
-      } else {
-        shiftEnd = timesArray[i + 1];
-      }
+      shiftEnd = timesArray[i + 1];
       
       // round shiftStart and shiftEnd to a time that ends in 0 or 5 minutes 
       const fiveMinAsMilliseconds = 1000 * 60 * 5;
@@ -34,7 +30,7 @@ const generateResults = (start, end, offset, radioSelection) => {
       // get formatted shift
       const shift = formatShift(shiftStart, shiftEnd);
   
-      // push formatted shift and shift length to array
+      // push formatted shift and shift length to (multidimensional) array
       shiftsArray.push([shift, shiftLength]);
 
       // shift end time becomes new start time for next iteration

@@ -125,18 +125,46 @@ label {
 .modal-content {
   width: 500px;
   background-color: #fff;
+  border-radius: 5px;
 }
 
 .modal-header, .modal-footer {
-  padding: 10px;
+  padding: 5px;
+  font-size: 16px;
 }
 
-.modal-title {
-  margin: 0;
+.modal-button-close,
+.modal-button-print {
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid #d8dbdc;
+  background-color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.modal-button-close:hover,
+.modal-button-close:focus {
+  background-color: #ecf0f1;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-button-print:hover,
+.modal-button-print:focus {
+  background-color: #eff1ec;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-body {
   padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 table {
@@ -149,6 +177,59 @@ td {
   border: 1px solid black;
   padding: 15px;
   width: 30%;
+}
+
+.test {
+  display: block;
+  height: 500px;
+  overflow-y: scroll;  
+}
+
+.resultsHeader {
+  
+}
+
+.tableBig {
+  border: 1px solid black;
+  background: white;
+  width: 825px;
+  display: block;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.tableBig td {
+  border: 1px solid black;
+  padding: 30px;
+  width: 30%;
+  font-size: xx-large;
+  font-weight: bold;
+  transform: scaleY(3);
+  transform: scaleX(1.25);
+}
+
+.statisticsSheet {
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 10px 35px;
+  margin-left: 50px;
+  margin-top: 0px;
+  margin-bottom: -10px;
+}
+
+.statisticsSheet td:nth-child(1) {
+  width: 20%;
+  transform: scaleY(1.15);
+}
+
+.statisticsSheet td:nth-child(2) {
+  width: 60%;
+  transform: scaleY(1.15);
+}
+
+.statisticsSheet td:nth-child(3) {
+  width: 20%;
+  transform: scaleY(1.15);
 }
 
 

@@ -5,7 +5,7 @@ import generateResults from './generateResults';
 const InputForm = (props) => {
 
     // react-hook-form to manage form data, validation, error messages
-    const {register, handleSubmit, formState: {errors} } = useForm();
+    const {register, handleSubmit, formState: {errors}, reset } = useForm();
     // function to manage error messages
     const handleErrors = (errors) => {};
 
@@ -49,9 +49,13 @@ const InputForm = (props) => {
         const radioSelection = inputData.radio;
 
         // generate results
-        let results = generateResults(startTimeObj, endTimeObj, offset, radioSelection);
+        const results = generateResults(startTimeObj, endTimeObj, offset, radioSelection);
         
+        // pass results to getResults to lift state up to main App component
         props.getResults(results);
+
+        // reset input fields upon submission
+        reset()
     }
 
   return (
@@ -154,8 +158,8 @@ const InputForm = (props) => {
 				</label>
 			</label>
 
-            <button type="submit" onClick={props.triggerModal} className="userButton" id="calculateButton">CALCULATE</button>
-			<input type="button" className="userButton" id="resetButton" value="RESET" />
+            <button type="submit" className="userButton" id="calculateButton">CALCULATE</button>
+			<input type="button" onClick={() => reset()} className="userButton" id="resetButton" value="RESET" />
         </form>
 
     </div>

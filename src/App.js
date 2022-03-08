@@ -6,18 +6,14 @@ import Modal from './Modal';
 
 function App() {
 
-  // hook to manage shift results
+  // hook to manage results
   const [results, setResults] = useState();
   // hook to manage modal window
   const [showModal, setShowModal] = useState(false);
   
-  // function to getShifts
+  // function to getResults and toggle modal to open
   const getResults = (resultsData) => {
     setResults(resultsData);
-  }
-
-  // function to trigger modal
-  const triggerModal = (e) => {
     setShowModal(true);
   }
 
@@ -25,7 +21,7 @@ function App() {
     <div className="App">
       <div className="container">
         <Header />
-        <InputForm getResults={getResults} triggerModal={triggerModal} />
+        <InputForm getResults={getResults} />
         <Modal results={results} showModal={showModal} onClose={() => setShowModal(false)} />
       </div>
     </div>
