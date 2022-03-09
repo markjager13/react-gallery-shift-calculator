@@ -2,9 +2,9 @@ import React from 'react'
 
 const Modal = (props) => {
     
-    if (!props.showModal){
+/*     if (!props.showModal){
         return null;
-    }
+    } */
 
     // format current date as mm/dd/yyyy
     const getCurrentDate = () => {
@@ -19,7 +19,7 @@ const Modal = (props) => {
     const todaysDate = getCurrentDate();
 
   return (
-    <div className="modal" onClick={props.onClose}>
+    <div className={`modal ${props.showModal ? "show" : ""}`} onClick={props.onClose}>
         <div className="modal-content" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
                 <p>Results</p>
@@ -52,7 +52,7 @@ const Modal = (props) => {
             </div>
             <div className="modal-footer">
                 <button onClick={props.onClose} className="modal-button-close">Close</button>
-                <button className="modal-button-print">Print</button>
+                <button onClick={window.print} className="modal-button-print">Print</button>
             </div>
         </div>
     </div>
