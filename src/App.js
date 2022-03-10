@@ -22,7 +22,7 @@ function App() {
       <div className="container">
         <Header />
         <InputForm getResults={getResults} />
-        <Modal results={results} showModal={showModal} onClose={() => setShowModal(false)} />
+        <Modal results={results} showModal={showModal} handleClose={() => setShowModal(false)} onClose={() => setShowModal(false)} />
       </div>
     </div>
   );
