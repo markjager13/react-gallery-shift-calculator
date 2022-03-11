@@ -60,70 +60,72 @@ const InputForm = (props) => {
 
   return (
     <div className="input-container">
-
         <form className="form-input" onSubmit={handleSubmit(handleCalculation, handleErrors)}>
-            
-            <input 
-                type="text" 
-                className="userInput" 
-                name="startTime"
-                placeholder="Start Time" 
-                list="sTimes"
-                {...register("startTime", inputOptions.startTime)}
-            />
-            <p className="text-danger">
-                {errors?.startTime && errors.startTime.message}
-            </p>
-            <datalist id="sTimes">
-				<option value="9:30 am" />
-				<option value="9:45 am" />
-				<option value="10:00 am" />
-				<option value="10:15 am" />
-				<option value="10:30 am" />
-			</datalist>
+            <div className="text-input-container">
+                <input 
+                    type="text" 
+                    className="userInput" 
+                    name="startTime"
+                    placeholder="Start Time" 
+                    list="sTimes"
+                    {...register("startTime", inputOptions.startTime)}
+                />
+                <p className="text-danger">
+                    {errors?.startTime && errors.startTime.message}
+                </p>
+                <datalist id="sTimes">
+                    <option value="9:30 am" />
+                    <option value="9:45 am" />
+                    <option value="10:00 am" />
+                    <option value="10:15 am" />
+                    <option value="10:30 am" />
+                </datalist>
 
-            <input 
-                type="text" 
-                className="userInput" 
-                name="endTime"
-                placeholder="End Time" 
-                list="eTimes" 
-                {...register("endTime", inputOptions.endTime)}
-            />
-            <p className="text-danger">
-                {errors?.endTime && errors.endTime.message}
-            </p>
-            <datalist id="eTimes">
-				<option value="3:30 pm" />
-				<option value="3:45 pm" />
-				<option value="4:00 pm" />
-				<option value="4:15 pm" />
-				<option value="4:30 pm" />
-			</datalist>
+                <input 
+                    type="text" 
+                    className="userInput" 
+                    name="endTime"
+                    placeholder="End Time" 
+                    list="eTimes" 
+                    {...register("endTime", inputOptions.endTime)}
+                />
+                <p className="text-danger">
+                    {errors?.endTime && errors.endTime.message}
+                </p>
+                <datalist id="eTimes">
+                    <option value="3:30 pm" />
+                    <option value="3:45 pm" />
+                    <option value="4:00 pm" />
+                    <option value="4:15 pm" />
+                    <option value="4:30 pm" />
+                </datalist>
 
-			<input 
-                type="text" 
-                className="userInput" 
-                name="staffNum"
-                placeholder="Number of Staff" 
-                list="number" 
-                {...register("staffNum", inputOptions.staffNum)}
-            />
-            <p className="text-danger">
-                {errors?.staffNum && errors.staffNum.message}
-            </p>
-            <datalist id="number">
-				<option value="5" />
-				<option value="6" />
-				<option value="7" />
-				<option value="8" />
-				<option value="9" />
-				<option value="10" />
-			</datalist>
+                <input 
+                    type="text" 
+                    className="userInput" 
+                    name="staffNum"
+                    placeholder="Number of Staff" 
+                    list="number" 
+                    {...register("staffNum", inputOptions.staffNum)}
+                />
+                <p className="text-danger">
+                    {errors?.staffNum && errors.staffNum.message}
+                </p>
+                <datalist id="number">
+                    <option value="5" />
+                    <option value="6" />
+                    <option value="7" />
+                    <option value="8" />
+                    <option value="9" />
+                    <option value="10" />
+                </datalist>
+            </div>
 
-            <label>Results Format:<br/>
-				<label>
-					<input 
+            <div className="radio-input-container">
+                <label>Results Format:</label>
+                <div className="radio-input-group">
+                    <label for="tableSelectBig">Office Schedule</label>
+                    <input 
                         type="radio" 
                         className="radioSelect" 
                         id="tableSelectBig" 
@@ -132,10 +134,10 @@ const InputForm = (props) => {
                         defaultChecked={true}
                         {...register("radio")}
                     />
-                    Office Schedule<br/>
-				</label>
-				<label>
-					<input 
+                </div>
+                <div className="radio-input-group">
+                    <label for="sheetSelect">Statistics Form</label>
+                    <input 
                         type="radio" 
                         className="radioSelect" 
                         id="sheetSelect" 
@@ -143,10 +145,10 @@ const InputForm = (props) => {
                         value="statisticsSheet"
                         {...register("radio")}
                     />
-                    Statistics Form<br/>
-				</label>					
-				<label>
-					<input 
+                </div>
+                <div className="radio-input-group">
+                    <label for="tableSelect">Table</label>
+                    <input 
                         type="radio" 
                         className="radioSelect" 
                         id="tableSelect" 
@@ -154,12 +156,13 @@ const InputForm = (props) => {
                         value="simpleTable"
                         {...register("radio")}
                     />
-                    Table<br/>
-				</label>
-			</label>
+                </div>
+            </div>
+            <div className="btn-container">
+                <button type="submit" className="userButton" id="calculateButton">CALCULATE</button>
+                <input type="button" onClick={() => reset()} className="userButton" id="resetButton" value="RESET" />
+            </div>
 
-            <button type="submit" className="userButton" id="calculateButton">CALCULATE</button>
-			<input type="button" onClick={() => reset()} className="userButton" id="resetButton" value="RESET" />
         </form>
 
     </div>

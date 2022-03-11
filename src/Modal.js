@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import ReactPortal from './ReactPortal';
+import { CSSTransition } from "react-transition-group";
 
 //import ReactDOM from 'react-dom'
 
@@ -8,6 +9,7 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
 /*     if (!props.showModal){
         return null;
     } */
+    const nodeRef = useRef(null);
 
     useEffect(() => {
         const closeOnEscapeKey = e => e.key === "Escape" ? handleClose() : null;
@@ -17,7 +19,7 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
         };
       }, [handleClose]);
 
-      if (!showModal) return null;
+      //if (!showModal) return null;
 
     // format current date as mm/dd/yyyy
     const getCurrentDate = () => {
@@ -77,8 +79,15 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
 */
       return (
         <ReactPortal wrapperId="react-portal-modal-container">
-        <div className={`modal ${showModal ? "show" : ""}`}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
+        <CSSTransition
+        in={showModal}
+        timeout={{ entry: 0, exit: 300 }}
+        unmountOnExit
+        classNames="modal"
+        nodeRef={nodeRef}
+      >
+        <div className="modal" ref={nodeRef}>
+            <div className="modal-content">
                 {children}
             <div className="modal-header">
                 <p>Results</p>
@@ -115,6 +124,7 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
             </div>
             </div>
         </div>
+        </CSSTransition>
         </ReactPortal>
 
       );

@@ -56,21 +56,29 @@ h1 {
   color: black;
 }
 
-.checkBoxLabel {
-  font-size: 16px;
+/* NEW radio input section */
+.radio-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.checkBoxRounded,
-.radioSelect {
+.radio-input-container label {
+  font-size: 18px;
+}
+
+.radio-input-group {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 5px;
+}
+
+.radio-input-group input[type="radio"] {
   zoom: 2;
 }
 
-label {
-  width: 300px;
-  float: left;
-  text-align: left;
-  padding: 5px;
-  font-size: 16px;
+.radio-input-group label {
+  margin-top: 8px;
 }
 
 .userButton {
@@ -107,7 +115,8 @@ label {
   background-color: #716e6e;
 }
 
-.new-modal {
+/* NEW Modal section */
+.modal {
   position: fixed;
   inset: 0; /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
   background-color: rgba(0, 0, 0, 0.6);
@@ -119,9 +128,22 @@ label {
   overflow: hidden;
   z-index: 999;
   padding: 40px 20px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.4);
 }
 
-.new-modal-content {
+.modal-enter-done {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.modal-exit {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.modal-content {
   width: 70%;
   height: 70%;
   background-color: #282c34;
@@ -130,42 +152,6 @@ label {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-}
-
-
-.modal {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  pointer-events: none;
-
-}
-
-.modal.show {
-  opacity: 1;
-  pointer-events: visible;
-}
-
-.modal-content {
-  width: 500px;
-  background-color: #fff;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-header, .modal-footer {
-  padding: 5px;
-  font-size: 16px;
 }
 
 .modal-button-close,
@@ -196,12 +182,7 @@ label {
   cursor: pointer;
 }
 
-.modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-}
-
+/* Table styling */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -212,17 +193,6 @@ td {
   border: 1px solid black;
   padding: 15px;
   width: 30%;
-}
-
-.test {
-  display: block;
-  height: 500px;
-  overflow-y: scroll;  
-}
-
-/*  not sure if i will use this className yet  */
-.resultsHeader {
-  border-color: green;
 }
 
 .tableBig {
@@ -278,5 +248,48 @@ td {
     size: a4;
     margin: 0;
   }
+}
+
+/* OLD Modal */
+.old-modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.old-modal.show {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.old-modal-content {
+  width: 500px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.old-modal-header, .old-modal-footer {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.old-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
