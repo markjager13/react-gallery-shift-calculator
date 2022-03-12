@@ -124,7 +124,7 @@ const InputForm = (props) => {
             <div className="radio-input-container">
                 <label>Results Format:</label>
                 <div className="radio-input-group">
-                    <label for="tableSelectBig">Office Schedule</label>
+                    <label htmlFor="tableSelectBig">Office Schedule</label>
                     <input 
                         type="radio" 
                         className="radioSelect" 
@@ -136,7 +136,7 @@ const InputForm = (props) => {
                     />
                 </div>
                 <div className="radio-input-group">
-                    <label for="sheetSelect">Statistics Form</label>
+                    <label htmlFor="sheetSelect">Statistics Form</label>
                     <input 
                         type="radio" 
                         className="radioSelect" 
@@ -147,7 +147,7 @@ const InputForm = (props) => {
                     />
                 </div>
                 <div className="radio-input-group">
-                    <label for="tableSelect">Table</label>
+                    <label htmlFor="tableSelect">Table</label>
                     <input 
                         type="radio" 
                         className="radioSelect" 
