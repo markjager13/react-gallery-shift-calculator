@@ -33,7 +33,7 @@ h1 {
   background-color: white;
 }
 
-.userInput {
+.textInput {
   width: 100%;
   padding: 13px 13px 20px;
   box-sizing: border-box;
@@ -47,11 +47,11 @@ h1 {
   transition: 0.3s ease-in-out;
 }
 
-.userInput:hover {
+.textInput:hover {
   box-shadow: 0px 0px 5px #2980b9;
 }
 
-.userInput:focus {
+.textInput:focus {
   box-shadow: 0px 0px 5px #2980b9;
   color: black;
 }
@@ -81,7 +81,7 @@ h1 {
   margin-top: 8px;
 }
 
-.userButton {
+.inputButton {
   width: 100%;
   height: auto;
   padding: 16px 30px;

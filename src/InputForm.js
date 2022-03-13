@@ -64,7 +64,7 @@ const InputForm = (props) => {
             <div className="text-input-container">
                 <input 
                     type="text" 
-                    className="userInput" 
+                    className="textInput" 
                     name="startTime"
                     placeholder="Start Time" 
                     list="sTimes"
@@ -83,7 +83,7 @@ const InputForm = (props) => {
 
                 <input 
                     type="text" 
-                    className="userInput" 
+                    className="textInput" 
                     name="endTime"
                     placeholder="End Time" 
                     list="eTimes" 
@@ -102,7 +102,7 @@ const InputForm = (props) => {
 
                 <input 
                     type="text" 
-                    className="userInput" 
+                    className="textInput" 
                     name="staffNum"
                     placeholder="Number of Staff" 
                     list="number" 
@@ -159,8 +159,8 @@ const InputForm = (props) => {
                 </div>
             </div>
             <div className="btn-container">
-                <button type="submit" className="userButton" id="calculateButton">CALCULATE</button>
-                <input type="button" onClick={() => reset()} className="userButton" id="resetButton" value="RESET" />
+                <button type="submit" className="inputButton" id="calculateButton">CALCULATE</button>
+                <input type="button" onClick={() => reset()} className="inputButton" id="resetButton" value="RESET" />
             </div>
 
         </form>
