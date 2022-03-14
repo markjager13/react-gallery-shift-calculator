@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
-import createWrapperAndAppendToBody from './createWrapperAndAppendToBody';
+import createWrapperAndAppendToBody from './utils/createWrapperAndAppendToBody';
 
 const ReactPortal = ({ children, wrapperId = "react-portal-wrapper" }) => {
 

@@ -1,0 +1,93 @@
+.inputContainer {
+    width: 340px;
+    height: auto;
+    display: inline-block;
+    background-color: white;
+    font-size: 18px;
+}
+
+/* text inputs */
+.textInput {
+    width: 100%;
+    padding: 13px 13px 20px;
+    box-sizing: border-box;
+    color: black;
+    font-size: 18px;
+    background: #ecf0f1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+  
+.textInput:hover {
+    box-shadow: 0px 0px 5px #2980b9;
+}
+
+.textInput:focus {
+    box-shadow: 0px 0px 5px #2980b9;
+    color: black;
+}
+
+.textDanger {
+    font-size: 16px;
+    color: #ed5249
+}
+
+/* radio inputs */
+.radioInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.radioInputGroup {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 5px;
+}
+
+.radioInputGroup input[type="radio"] {
+    zoom: 2;
+}
+
+.radioInputGroup label {
+    margin-top: 8px;
+}
+
+/* buttons */
+.inputBtn {
+    width: 100%;
+    height: auto;
+    padding: 16px 30px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.inputBtn.calculateBtn {
+    text-shadow: 1px 1px 1px #256a98;
+    box-shadow: 0px 3px 0px #256a98;
+    background-color: #3294d5;
+}
+
+.inputBtn.calculateBtn:hover {
+    background-color: #256a98;
+}
+
+.inputBtn.resetBtn {
+    text-shadow: 1px 1px 1px #716e6e;
+    box-shadow: 0px 3px 0px #716e6e;
+    background-color: #a9a9a9;
+    margin-bottom: 20px;
+}
+
+.inputBtn.resetBtn:hover {
+    background-color: #716e6e;
+}
+

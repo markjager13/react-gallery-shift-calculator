@@ -1,6 +1,8 @@
 import { useForm } from 'react-hook-form';
-import parseDateTime from './parseDateTime';
-import generateResults from './generateResults';
+import styles from './InputForm.module.css';
+// utils
+import parseDateTime from './utils/parseDateTime';
+import generateResults from './utils/generateResults';
 
 const InputForm = (props) => {
 
@@ -59,18 +61,18 @@ const InputForm = (props) => {
     }
 
   return (
-    <div className="input-container">
-        <form className="form-input" onSubmit={handleSubmit(handleCalculation, handleErrors)}>
-            <div className="text-input-container">
+    <div className={styles.inputContainer}>
+        <form onSubmit={handleSubmit(handleCalculation, handleErrors)}>
+            <div>
                 <input 
                     type="text" 
-                    className="textInput" 
+                    className={styles.textInput} 
                     name="startTime"
                     placeholder="Start Time" 
                     list="sTimes"
                     {...register("startTime", inputOptions.startTime)}
                 />
-                <p className="text-danger">
+                <p className={styles.textDanger}>
                     {errors?.startTime && errors.startTime.message}
                 </p>
                 <datalist id="sTimes">
@@ -83,13 +85,13 @@ const InputForm = (props) => {
 
                 <input 
                     type="text" 
-                    className="textInput" 
+                    className={styles.textInput} 
                     name="endTime"
                     placeholder="End Time" 
                     list="eTimes" 
                     {...register("endTime", inputOptions.endTime)}
                 />
-                <p className="text-danger">
+                <p className={styles.textDanger}>
                     {errors?.endTime && errors.endTime.message}
                 </p>
                 <datalist id="eTimes">
@@ -102,13 +104,13 @@ const InputForm = (props) => {
 
                 <input 
                     type="text" 
-                    className="textInput" 
+                    className={styles.textInput} 
                     name="staffNum"
                     placeholder="Number of Staff" 
                     list="number" 
                     {...register("staffNum", inputOptions.staffNum)}
                 />
-                <p className="text-danger">
+                <p className={styles.textDanger}>
                     {errors?.staffNum && errors.staffNum.message}
                 </p>
                 <datalist id="number">
@@ -121,9 +123,9 @@ const InputForm = (props) => {
                 </datalist>
             </div>
 
-            <div className="radio-input-container">
+            <div className={styles.radioInputContainer}>
                 <label>Results Format:</label>
-                <div className="radio-input-group">
+                <div className={styles.radioInputGroup}>
                     <label htmlFor="tableSelectBig">Office Schedule</label>
                     <input 
                         type="radio" 
@@ -135,7 +137,7 @@ const InputForm = (props) => {
                         {...register("radio")}
                     />
                 </div>
-                <div className="radio-input-group">
+                <div className={styles.radioInputGroup}>
                     <label htmlFor="sheetSelect">Statistics Form</label>
                     <input 
                         type="radio" 
@@ -146,7 +148,7 @@ const InputForm = (props) => {
                         {...register("radio")}
                     />
                 </div>
-                <div className="radio-input-group">
+                <div className={styles.radioInputGroup}>
                     <label htmlFor="tableSelect">Table</label>
                     <input 
                         type="radio" 
@@ -158,9 +160,9 @@ const InputForm = (props) => {
                     />
                 </div>
             </div>
-            <div className="btn-container">
-                <button type="submit" className="inputButton" id="calculateButton">CALCULATE</button>
-                <input type="button" onClick={() => reset()} className="inputButton" id="resetButton" value="RESET" />
+            <div>
+                <button type="submit" className={`${styles.inputBtn} ${styles.calculateBtn}`}>CALCULATE</button>
+                <input type="button" onClick={() => reset()} className={`${styles.inputBtn} ${styles.resetBtn}`} value="RESET" />
             </div>
 
         </form>

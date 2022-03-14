@@ -1,0 +1,83 @@
+.modal {
+    position: fixed;
+    inset: 0; /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.4);
+}
+
+.enterDone {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+.exit {
+    opacity: 0;
+    transform: scale(0.4);
+}
+
+.modalContent {
+    width: 500px;
+    height: 550px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.modalHeader {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modalFooter {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border-top: 1px solid #eee;
+}
+
+.modalBody {
+    padding: 10px;
+}
+
+.modalBtnClose,
+.modalBtnPrint {
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #d8dbdc;
+    background-color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.modalBtnClose:hover,
+.modalBtnClose:focus {
+    background-color: #ecf0f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modalBtnPrint:hover,
+.modalBtnPrint:focus {
+    background-color: #eff1ec;
+    text-decoration: none;
+    cursor: pointer;
+}
