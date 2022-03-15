@@ -44,12 +44,12 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
                         <p>Results</p>
                     </div>
                     <div className={styles.modalBody}>
-                        <div className="test">
+                        <div className={styles.results}>
                             <div className="resultsHeader">
                                 <h2>Overlook Gallery Schedule</h2>
                                 <h4>DATE: {todaysDate}</h4>
                             </div>
-                            <table>
+                            <table className="resultsBody">
                                 <thead>
                                     <tr>
                                         <th>Time</th>

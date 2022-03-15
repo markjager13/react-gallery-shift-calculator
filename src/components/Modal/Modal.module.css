@@ -29,7 +29,6 @@
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     border-radius: 5px;
     overflow-y: scroll;
@@ -51,6 +50,7 @@
 }
 
 .modalBody {
+    flex: 1;
     padding: 10px;
 }
 
@@ -80,4 +80,51 @@
     background-color: #eff1ec;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+  
+td {
+    border: 1px solid black;
+    padding: 15px;
+    width: 30%;
+}
+  
+.results {
+    border: 1px solid black;
+    background: white;
+    width: 825px;
+    display: block;
+    height: 600px;
+    overflow-y: scroll;
+}
+  
+.results td {
+    border: 1px solid black;
+    padding: 30px;
+    width: 30%;
+    font-size: xx-large;
+    font-weight: bold;
+    transform: scaleY(3);
+    transform: scaleX(1.25);
+}
+  
+
+/* printing */
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    .results * {
+        visibility: visible;
+    }
+    @page {
+      size: a4;
+      margin: 0;
+    }
 }
