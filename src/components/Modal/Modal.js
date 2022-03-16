@@ -44,12 +44,12 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
                         <p>Results</p>
                     </div>
                     <div className={styles.modalBody}>
-                        <div className={styles.results}>
-                            <div className="resultsHeader">
+                        <div className={results ? styles[results.radioSelection]: ""}>
+                            <div>
                                 <h2>Overlook Gallery Schedule</h2>
                                 <h4>DATE: {todaysDate}</h4>
                             </div>
-                            <table className="resultsBody">
+                            <table>
                                 <thead>
                                     <tr>
                                         <th>Time</th>

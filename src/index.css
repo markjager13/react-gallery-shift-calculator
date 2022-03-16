@@ -5,6 +5,38 @@ body {
 }
 
 
+/* Table styling 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 15px;
+  width: 30%;
+}
+
+.tableBig {
+  border: 1px solid black;
+  background: white;
+  width: 825px;
+  display: block;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.tableBig td {
+  border: 1px solid black;
+  padding: 30px;
+  width: 30%;
+  font-size: xx-large;
+  font-weight: bold;
+  transform: scaleY(3);
+  transform: scaleX(1.25);
+}
+
 .statisticsSheet {
   text-align: center;
   border-collapse: separate;
@@ -29,7 +61,7 @@ body {
   transform: scaleY(1.15);
 }
 
-/* printing */
+/* printing 
 
 @media print {
   body * {
@@ -41,7 +73,7 @@ body {
   }
 }
 
-/* OLD Modal */
+/* OLD Modal 
 .old-modal {
   position: fixed;
   left: 0;
@@ -83,4 +115,4 @@ body {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
-
+*/

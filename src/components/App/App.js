@@ -18,7 +18,6 @@ function App() {
     setResults(resultsData);
     setShowModal(true);
   }
-  console.log(results);
 
   return (
     <div className="App">

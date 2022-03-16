@@ -25,7 +25,8 @@
 
 .modalContent {
     width: 500px;
-    height: 550px;
+    height: auto;
+    max-height: 550px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -82,47 +83,105 @@
     cursor: pointer;
 }
 
-/* Table styling */
+/* Results styling */
 table {
     border-collapse: collapse;
-    width: 100%;
     border: 1px solid black;
 }
   
-td {
+.tableBig td {
     border: 1px solid black;
-    padding: 15px;
-    width: 30%;
+    padding: 20px;
+    width: 75px;
 }
-  
-.results {
-    border: 1px solid black;
-    background: white;
-    width: 825px;
-    display: block;
-    height: 600px;
-    overflow-y: scroll;
+
+/*
+.statisticsSheet td {
+    background-color: green;
 }
-  
-.results td {
-    border: 1px solid black;
-    padding: 30px;
-    width: 30%;
-    font-size: xx-large;
-    font-weight: bold;
-    transform: scaleY(3);
-    transform: scaleX(1.25);
+
+.simpleTable td {
+    background-color: red;
 }
-  
+*/
 
 /* printing */
+/* got it mostly displayed but wont go to next page 
 @media print {
     body * {
-      visibility: hidden;
+        background-color: blue;
+        visibility: hidden;
     }
-    .results * {
+    .modalContent {
+        position: absolute;
+        top: 0;
+        text-align: center;
+        background-color: green;
+        overflow: visible;
+        visibility: hidden;
+    }
+    .modalHeader {
+        visibility: hidden;
+    }
+    .modalFooter {
+        visibility: hidden;
+    }
+    .modalBody {
+        position: absolute;
+        background-color: red;
+        visibility: hidden;
+        overflow: visible;
+    }
+    .tableBig * {
+        background-color: yellow;
+        visibility: visible;
+        overflow: visible;
+        padding-top: 0;
+        zoom: 120%;
+        width: 500px;
+    }
+    .tableBig {
+        background-color: purple;
+        visibility: visible;
+        overflow: visible;
+    }
+    .tableBig h2, .tableBig h4 {
+        margin-left: -25px;
+    }
+    .tableBig td {
+        padding: 15px;
+    }
+    .statisticsSheet * {
         visibility: visible;
     }
+    .simpleTable * {
+        visibility: visible;
+    }
+    @page {
+      size: a4;
+      margin: 0;
+    }
+}
+*/
+
+/* css above feels pretty messy, trying to start over to fix multiple page issue */
+@media print {
+    body * {
+        background-color: blue;
+        visibility: hidden;
+    }
+    .tableBig * {
+        visibility: visible;
+        background-color: yellow;
+    }
+    .tableBig {
+        position: absolute;
+        visibility: visible;
+        overflow: visible;
+        display: table-row-group;
+
+    }
+
     @page {
       size: a4;
       margin: 0;
