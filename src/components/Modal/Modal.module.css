@@ -167,19 +167,44 @@ table {
 /* css above feels pretty messy, trying to start over to fix multiple page issue */
 @media print {
     body * {
-        background-color: blue;
         visibility: hidden;
     }
+    body {
+        background-color: white;
+
+    }
+    .modal, .modalContent {
+        display: block;
+        overflow: visible;
+    }
+    .modal {
+        position: absolute;
+        background-color: white;
+    }
+    /* ModalResults component css? */
     .tableBig * {
         visibility: visible;
-        background-color: yellow;
+        overflow: visible;
+        zoom: 115%;
     }
     .tableBig {
+        margin-top: -90px;
+        margin-left: -2px;
         position: absolute;
-        visibility: visible;
         overflow: visible;
+        width: 98%;
+        font-size: large;
+    }
+    table * {
+        page-break-inside: avoid;
+    }
+    table {
+        overflow: visible;
+        width: 100%;
+        height: 100%;
+    }
+    thead {
         display: table-row-group;
-
     }
 
     @page {

@@ -28,7 +28,7 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
     }
 
     const todaysDate = getCurrentDate();
-
+    
     return (
     <ReactPortal wrapperId="react-portal-modal-container">
         <CSSTransition

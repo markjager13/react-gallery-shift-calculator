@@ -1,7 +1,10 @@
 .inputContainer {
-    width: 340px;
+    position: absolute;
+    width: 400px;
     height: auto;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     font-size: 18px;
 }
