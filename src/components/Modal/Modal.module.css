@@ -56,7 +56,8 @@
 }
 
 .modalBtnClose,
-.modalBtnPrint {
+.modalBtnPrint,
+.modalBtnCopy {
     height: auto;
     padding: 10px;
     margin: 10px;
@@ -67,6 +68,14 @@
     border: 1px solid #d8dbdc;
     background-color: white;
     transition: 0.3s ease-in-out;
+}
+
+.modalBtnCopy:hover,
+.modalBtnCopy:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #ecf0f1;
 }
 
 .modalBtnClose:hover,
@@ -83,16 +92,21 @@
     cursor: pointer;
 }
 
+
+
 /* Results styling */
 table {
     border-collapse: collapse;
     border: 1px solid black;
+    width: 300px;
 }
   
-.tableBig td {
+.tableBig td, .simpleTable td {
     border: 1px solid black;
     padding: 20px;
     width: 75px;
+    text-align: center;
+    font-size: medium;
 }
 
 /*
@@ -181,7 +195,6 @@ table {
         position: absolute;
         background-color: white;
     }
-    /* ModalResults component css? */
     .tableBig * {
         visibility: visible;
         overflow: visible;

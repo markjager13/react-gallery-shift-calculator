@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import styles from './Modal.module.css';
 import { CSSTransition } from "react-transition-group";
+import copyTable from "./utils/copyTable";
 
 // Components
 import ReactPortal from './ReactPortal';
@@ -28,6 +29,18 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
     }
 
     const todaysDate = getCurrentDate();
+
+    let isStatisticsSheet, isSimpleTable = false;
+
+    if (results) {
+        if (results.radioSelection === "statisticsSheet") {
+            isStatisticsSheet = true;
+        }
+        if (results.radioSelection === "simpleTable") {
+            isSimpleTable = true;
+        }
+    }
+
     
     return (
     <ReactPortal wrapperId="react-portal-modal-container">
@@ -53,7 +66,8 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
                                 <thead>
                                     <tr>
                                         <th>Time</th>
-                                        <th>Staff</th>
+                                        {isStatisticsSheet? <th>Notes</th> : <th>Staff</th>}
+                                        {isStatisticsSheet ? <th>Total</th> : null}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,6 +75,7 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
                                         return(
                                             <tr key={index}>
                                                 <td>{shift[0]}</td>
+                                                {isStatisticsSheet ? <td></td> : null}    
                                                 <td></td>
                                             </tr>
                                         )
@@ -71,7 +86,7 @@ const Modal = ( {results, children, showModal, handleClose} ) => {
                     </div>
                     <div className={styles.modalFooter}>
                         <button onClick={handleClose} className={styles.modalBtnClose}>Close</button>
-                        <button onClick={window.print} className={styles.modalBtnPrint}>Print</button>
+                        {isSimpleTable ? <button onClick={copyTable} className={styles.modalBtnCopy}>Copy</button> : <button onClick={window.print} className={styles.modalBtnPrint}>Print</button>}
                     </div>
                 </div>
             </div>
