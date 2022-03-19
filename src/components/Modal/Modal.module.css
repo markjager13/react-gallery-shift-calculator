@@ -108,7 +108,7 @@ table {
 
 .tableBig td, .simpleTable td {
     border: 1px solid black;
-    padding: 20px;
+    padding: 15px;
     width: 75px;
     text-align: center;
     font-size: medium;
@@ -125,7 +125,7 @@ table {
 
 .statisticsSheet td {
     border: 1px solid black;
-    padding: 15px;
+    padding: 10px;
     background: white;
 }
 
@@ -199,6 +199,10 @@ table {
     }
     .statisticsSheet table {
         zoom: 130%;
+    }
+    .statisticsSheet td {
+        page-break-inside: avoid;
+
     }
     .statisticsSheet h2, .statisticsSheet h4 {
         transform: translateX(30%);
