@@ -9,6 +9,10 @@
     font-size: 18px;
 }
 
+.form {
+    width: 80%;
+}
+
 /* text inputs */
 .textInput {
     width: 100%;

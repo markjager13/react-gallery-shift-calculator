@@ -55,14 +55,11 @@ const InputForm = (props) => {
         
         // pass results to getResults to lift state up to main App component
         props.getResults(results);
-
-        // reset input fields upon submission
-        reset()
     }
 
   return (
     <div className={styles.inputContainer}>
-        <form onSubmit={handleSubmit(handleCalculation, handleErrors)}>
+        <form onSubmit={handleSubmit(handleCalculation, handleErrors)} className={styles.form}>
             <div>
                 <input 
                     type="text" 

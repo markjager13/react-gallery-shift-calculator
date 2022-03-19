@@ -32,11 +32,11 @@
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
-    overflow-y: scroll;
     text-align: center;
 }
 
 .modalHeader {
+    box-sizing: border-box;
     width: 100%;
     padding: 5px;
     font-size: 16px;
@@ -44,6 +44,7 @@
 }
 
 .modalFooter {
+    box-sizing: border-box;
     width: 100%;
     padding: 5px;
     font-size: 16px;
@@ -51,8 +52,11 @@
 }
 
 .modalBody {
+    box-sizing: border-box;
     flex: 1;
     padding: 10px;
+    overflow-y: scroll;
+    width: 100%;
 }
 
 .modalBtnClose,
@@ -99,8 +103,9 @@ table {
     border-collapse: collapse;
     border: 1px solid black;
     width: 300px;
+    margin: auto;
 }
-  
+
 .tableBig td, .simpleTable td {
     border: 1px solid black;
     padding: 20px;
@@ -109,76 +114,37 @@ table {
     font-size: medium;
 }
 
-/*
+.statisticsSheet table {
+    background-color: #cccdce;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 10px 35px;
+    width: 600px;
+    zoom: 50%;
+}
+
 .statisticsSheet td {
-    background-color: green;
+    border: 1px solid black;
+    padding: 15px;
+    background: white;
 }
 
-.simpleTable td {
-    background-color: red;
+.statisticsSheet td:nth-child(1) {
+    width: 20%;
+    transform: scaleY(1.15);
 }
-*/
-
-/* printing */
-/* got it mostly displayed but wont go to next page 
-@media print {
-    body * {
-        background-color: blue;
-        visibility: hidden;
-    }
-    .modalContent {
-        position: absolute;
-        top: 0;
-        text-align: center;
-        background-color: green;
-        overflow: visible;
-        visibility: hidden;
-    }
-    .modalHeader {
-        visibility: hidden;
-    }
-    .modalFooter {
-        visibility: hidden;
-    }
-    .modalBody {
-        position: absolute;
-        background-color: red;
-        visibility: hidden;
-        overflow: visible;
-    }
-    .tableBig * {
-        background-color: yellow;
-        visibility: visible;
-        overflow: visible;
-        padding-top: 0;
-        zoom: 120%;
-        width: 500px;
-    }
-    .tableBig {
-        background-color: purple;
-        visibility: visible;
-        overflow: visible;
-    }
-    .tableBig h2, .tableBig h4 {
-        margin-left: -25px;
-    }
-    .tableBig td {
-        padding: 15px;
-    }
-    .statisticsSheet * {
-        visibility: visible;
-    }
-    .simpleTable * {
-        visibility: visible;
-    }
-    @page {
-      size: a4;
-      margin: 0;
-    }
+  
+.statisticsSheet td:nth-child(2) {
+    width: 60%;
+    transform: scaleY(1.15);
 }
-*/
+  
+.statisticsSheet td:nth-child(3) {
+    width: 20%;
+    transform: scaleY(1.15);
+}
 
-/* css above feels pretty messy, trying to start over to fix multiple page issue */
+/* Print styling */
 @media print {
     body * {
         visibility: hidden;
@@ -187,7 +153,7 @@ table {
         background-color: white;
 
     }
-    .modal, .modalContent {
+    .modal, .modalContent, .modalBody {
         display: block;
         overflow: visible;
     }
@@ -218,6 +184,28 @@ table {
     }
     thead {
         display: table-row-group;
+    }
+    .statisticsSheet * {
+        visibility: visible;
+        overflow: visible;
+    }
+    .statisticsSheet {
+        margin-top: -70px;
+        margin-left: -2px;
+        overflow: visible;
+    }
+    .statisticsSheet thead {
+        font-size: larger;
+    }
+    .statisticsSheet table {
+        zoom: 130%;
+    }
+    .statisticsSheet h2, .statisticsSheet h4 {
+        transform: translateX(30%);
+        text-align: center;
+        font-size: x-large;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     @page {
