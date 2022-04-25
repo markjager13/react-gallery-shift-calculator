@@ -12,7 +12,7 @@ const generateResults = (start, end, offset, radioSelection) => {
       shiftTime = new Date(shiftTime.getTime() + offset);
     } while (shiftTime <= end);
   
-    // shiftArray will contain shift (start to finish) and length of each shift
+    // shiftArray will contain shift (when shift begins and ends) and length of each shift
     const shiftsArray = [];
     let shiftStart, shiftEnd;
     for (let i = 0; i < timesArray.length - 1; i++) {
