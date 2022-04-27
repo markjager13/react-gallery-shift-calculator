@@ -25,6 +25,7 @@ const copyTable = () => {
     
     sel.removeAllRanges();
     
+    alert('Element Copied! Paste it in a file')
     console.log('Element Copied! Paste it in a file')
 }
 
