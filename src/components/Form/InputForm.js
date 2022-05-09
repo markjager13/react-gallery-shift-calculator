@@ -159,7 +159,7 @@ const InputForm = (props) => {
             </div>
             <div>
                 <button type="submit" className={`${styles.inputBtn} ${styles.calculateBtn}`}>CALCULATE</button>
-                <input type="button" onClick={() => reset()} className={`${styles.inputBtn} ${styles.resetBtn}`} value="RESET" />
+                <button type="reset" onClick={() => reset()} className={`${styles.inputBtn} ${styles.resetBtn}`} value="RESET">RESET</button>
             </div>
 
         </form>
