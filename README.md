@@ -27,7 +27,7 @@ Originally, I had built this app using plain HTML, CSS, and JavaScript. More rec
 
 ### Installation
 * Clone the repo
-* In your terminal, type `git clone URL`
+* In your terminal, type `git clone URL` (substituting URL with the one that was copied to your clipboard)
 * cd into the directory that was just created
 * Type `npm install` to install all dependencies
 * Type `npm start` to run the app locally
