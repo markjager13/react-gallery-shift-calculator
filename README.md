@@ -20,7 +20,7 @@ Originally, I had built this app using plain HTML, CSS, and JavaScript. More rec
 ### Why I built the project his way
 * My colleagues required text inputs instead of a date/time picker. This required me to translate the text inputs into date objects prior to performing any calculations.
 * The results formats were styled in a way that would reproduce actual forms/schedules used in the office. 
-* My plan is to become a front end developer that is well versed in react. This project was conceived as a way to help deepen my understanding of the concepts that I was learning at the time. 
+* My plan is to become a software developer that is well versed in react. This project was conceived as a way to help deepen my understanding of the concepts that I was learning at the time. 
 
 ### If I had more time I would change the following
 * Testing is an essential part of production applications. In the future would like to add integration tests using the React Testing Library as an alternative to manual tests.
