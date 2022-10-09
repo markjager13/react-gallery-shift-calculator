@@ -34,7 +34,7 @@ const generateResults = (start, end, offset, radioSelection) => {
       shiftsArray.push([shift, shiftLength]);
 
       // shift end time becomes new start time for next iteration
-      shiftStart = shiftEnd;
+      //shiftStart = shiftEnd;
     }
   
     const results = {shiftsArray, radioSelection};
