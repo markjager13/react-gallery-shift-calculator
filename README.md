@@ -5,8 +5,6 @@ Gallery Shift Calculator is an application I created while working at the Librar
 
 Originally, I had built this app using plain HTML, CSS, and JavaScript. More recently, I rebuilt the app using React in order to solidify my understanding of React concepts. 
 
-[Live Demo](https://galleryshiftcalculator.netlify.app/)
-
 ### How I worked on this project
 * I broke this project down into sections (Input Form, Shift Logic, Modal Results). 
 * With each section, I considered how I could translate the plain JavaScript into React components. 
